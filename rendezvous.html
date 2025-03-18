@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Downtown Cab Co.</title>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+<header>
+<img src='images/logo.svg' alt='Logo Downtown Cab Co.' class='logo left'>
+<h1>Downtown Cab Co.</h1>
+<p>
+    <a href='https://discord.gg/FVkKKZf59D'>
+        <img src='images/serveur.png' alt='Logo Funly RP' class='logo right'>
+    </a>
+</p>
+</header>
+<main>
+<h2 class="rdv1">Prise de rendez-vous</h2>
+<p class="rdv2"> Prenez vos rendez-vous en ligne.</p>
+</main>
+<footer>
+<p>&copy; 2025 Downtown Cab Co. Tous droits réservés.</p>
+</footer>
+</body>
+
+<body>
+    <div class="hover-zone" onmouseover="openMenu()"></div>
+    <div class="sidebar" id="sidebar" onmouseleave="closeMenu()">
+        <a href="index.html">Accueil</a>
+        <a href="info.html">Information</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="rendezvous.html">Contact</a>
+    </div>
+    
+    <script>
+        function openMenu() {
+            document.getElementById("sidebar").style.left = "0";
+        }
+        
+        function closeMenu() {
+            document.getElementById("sidebar").style.left = "-250px";
+        }
+    </script>
+
+
+</head>
+
+<body class="rdv">
+
+<form id="rdvForm">
+    <input type="text" id="name" placeholder="Votre nom" required>
+    <input type="tel" id="phone" placeholder="Votre numero de téléphone" required>
+    <input type="text" id="objet" placeholder="Objet du rendez-vous" required>
+    <textarea id="message" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+</form>
+
+<script>
+    document.getElementById("rdvForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        const webhookURL = "https://discord.com/api/webhooks/1351274116791144509/f3hMwEIsixCWh4aUaUs4nVbcsTQ91hjE-nFglj2uj-jiLQPFf9bvEd0laE2XeQJgdzNs"; // Remplace par ton Webhook Discord
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const objet = document.getElementById("objet").value;
+        const message = document.getElementById("message").value;
+        
+        const data = {
+            "embeds": [
+                {
+                    "title": "📅 Nouveau Rendez-vous",
+                    "color":  16705372,
+                    "fields": [
+                            {"name": "👤 Nom", "value": name, "inline": true},
+                            {"name": "📞 Téléphone", "value": phone, "inline": true},
+                            {"name": ":pencil: Objet", "value": message, "inline": false},
+                            {"name": "💬 Message", "value": message, "inline": false}
+                    ],
+                    "footer": {"text": "Prise de rendez-vous automatisée"}
+                }
+            ]
+
+
+        };
+        
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Rendez-vous envoyé avec succès !");
+                document.getElementById("rdvForm").reset();
+            } else {
+                alert("Erreur lors de l'envoi du rendez-vous.");
+            }
+        })
+        .catch(error => console.error("Erreur :", error));
+    });
+</script>
+<p class= "test2">
+    test
+</p>
+</html>

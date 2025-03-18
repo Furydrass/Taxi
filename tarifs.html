@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Downtown Cab Co.</title>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+<header>
+<img src='images/logo.svg' alt='Logo Downtown Cab Co.' class='logo left'>
+<h1>Downtown Cab Co.</h1>
+<p>
+    <a href='https://discord.gg/FVkKKZf59D'>
+        <img src='images/serveur.png' alt='Logo Funly RP' class='logo right'>
+    </a>
+</p>
+</header>
+
+
+
+<main>
+<h2 class='tarifs'>Tarifs</h2>
+<p class='tarifs1'>💰 Tarifs des services Downtown Cab Co. 🚖</p>
+</main>
+<footer>
+<p>&copy; 2025 Downtown Cab Co. et Furydrass Tous droits réservés.</p>
+</footer>
+</body>
+
+<div class='tarifs2'>
+    <p>🔹 Cours standard (Point A → Point B) : 100 $</p>
+    <p>🔹 Course longue distance : 250 $</p>
+    <p>🔹 Transport de groupe (jusqu'à 4 personnes) : 300 $</p>
+    <p>🔹 Service VIP (voiture de luxe, chauffeur privé) : 500 $</p>
+    <p>🔹 Abonnement entreprise (10 trajets / semaine) : 2 000 $</p>
+    <p>🔹 Cours prioritaire (service express, pas d'attente) : 350 $</p>
+    <p>🔹 Mise à disposition d'un chauffeur personnel (1h) : 800$</p>
+    <p>✅ Tarifs négociables pour les entreprises et partenaires officiels.</p>
+</div>
+<body>
+    <div class="hover-zone" onmouseover="openMenu()"></div>
+    <div class="sidebar" id="sidebar" onmouseleave="closeMenu()">
+        <a href="index.html">Accueil</a>
+        <a href="info.html">Information</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="rendezvous.html">Contact</a>
+    </div>
+    <p class= "test">
+        test
+    </p>
+    <script>
+        function openMenu() {
+            document.getElementById("sidebar").style.left = "0";
+        }
+        
+        function closeMenu() {
+            document.getElementById("sidebar").style.left = "-250px";
+        }
+    </script>
+</html>
