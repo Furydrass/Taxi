@@ -62,22 +62,35 @@
     </p>
 
 <body>
-    <div class="hover-zone" onmouseover="openMenu()"></div>
-    <div class="sidebar" id="sidebar" onmouseleave="closeMenu()">
-        <a href="index.html">Accueil</a>
-        <a href="info.html">Information</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="rendezvous.html">Contact</a>
-    </div>
-    
-    <script>
-        function openMenu() {
-            document.getElementById("sidebar").style.left = "0";
-        }
+        <div class="menu-container" onclick="toggleMenu()">
+            <div class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         
-        function closeMenu() {
-            document.getElementById("sidebar").style.left = "-250px";
-        }
-    </script>
+        <div class="menu" id="menu">
+            <a href="index.html">🏠 Accueil</a>
+            <a href="info.html">🛠 Services</a>
+            <a href="tarifs.html">💰 Tarifs</a>
+            <a href="rendezvous.html">📞 Contact</a>
+        </div>
+        
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById("menu");
+                const icon = document.querySelector(".menu-container");
+                
+                if (menu.style.left === "0px") {
+                    menu.style.left = "-250px";
+                    icon.classList.remove("open");
+                } else {
+                    menu.style.left = "0px";
+                    icon.classList.add("open");
+                }
+            }
+        </script>
+    </body>
 </body>
 </html>
